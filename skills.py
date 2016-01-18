@@ -154,32 +154,31 @@ def translate_to_pirate_talk(phrase):
 
     """
 
-    # import re
+    translate_dict = {"sir": "matey",
+                      "man": "matey",
+                      "hotel": "fleabag inn",
+                      "student": "swabbie",
+                      "boy": "matey",
+                      "professor": "foul blaggart",
+                      "restaurant": "galley",
+                      "your": "yer",
+                      "excuse": "arr",
+                      "students": "swabbies",
+                      "are": "be",
+                      "restroom": "head",
+                      "my": "me",
+                      "is": "be",
+                      }
 
-    # translate_dict = {"sir": "matey",
-    #                   "hotel": "fleabag inn",
-    #                   "student": "swabbie",
-    #                   "boy": "matey",
-    #                   "professor": "foul blaggart",
-    #                   "restaurant": "galley",
-    #                   "your": "yer",
-    #                   "excuse": "arr",
-    #                   "students": "swabbies",
-    #                   "are": "be",
-    #                   "restroom": "head",
-    #                   "my": "me",
-    #                   "is": "be",
-    #                   }
+    words = phrase.split()
 
-    # words = phrase.split()
+    for i in range(len(words)):
+        if words[i] in translate_dict.keys():
+            words[i] = translate_dict.get(words[i])
 
-    # for i in range(words):
-    #     if words[i] in translate_dict.keys():
-    #         words[i] = translate_dict(words[i])
+    pirate_phrase = " ".join(words)
 
-    # pirate_phrase = words.join(" ")
-
-    # return pirate_phrase
+    return pirate_phrase
 
 
 def sort_by_word_length(words):
