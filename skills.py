@@ -34,7 +34,10 @@ def without_duplicates(words):
 
     """
 
-    return []
+    s = set(words)
+    lst = [item for item in s]
+
+    return lst
 
 
 def find_unique_common_items(list1, list2):
@@ -63,7 +66,14 @@ def find_unique_common_items(list1, list2):
 
     """
 
-    return []
+    set1 = set(list1)
+    set2 = set(list2)
+
+    unique_set = set1 & set2
+
+    unique_lst = [item for item in unique_set]
+
+    return unique_lst
 
 
 def count_unique(input_string):
@@ -93,7 +103,17 @@ def count_unique(input_string):
 
     """
 
-    return {}
+    words = input_string.split()
+
+    unique_dict = {}
+
+    for word in words:
+        if word not in unique_dict.iterkeys():
+            unique_dict[word] = 1
+        elif word in unique_dict.iterkeys():
+            unique_dict[word] += 1
+
+    return unique_dict
 
 
 def translate_to_pirate_talk(phrase):
@@ -134,7 +154,32 @@ def translate_to_pirate_talk(phrase):
 
     """
 
-    return ""
+    # import re
+
+    # translate_dict = {"sir": "matey",
+    #                   "hotel": "fleabag inn",
+    #                   "student": "swabbie",
+    #                   "boy": "matey",
+    #                   "professor": "foul blaggart",
+    #                   "restaurant": "galley",
+    #                   "your": "yer",
+    #                   "excuse": "arr",
+    #                   "students": "swabbies",
+    #                   "are": "be",
+    #                   "restroom": "head",
+    #                   "my": "me",
+    #                   "is": "be",
+    #                   }
+
+    # words = phrase.split()
+
+    # for i in range(words):
+    #     if words[i] in translate_dict.keys():
+    #         words[i] = translate_dict(words[i])
+
+    # pirate_phrase = words.join(" ")
+
+    # return pirate_phrase
 
 
 def sort_by_word_length(words):
@@ -151,7 +196,17 @@ def sort_by_word_length(words):
 
     """
 
-    return []
+    organize_by_word_length = {}
+
+    for word in words:
+        if len(word) not in organize_by_word_length.keys():
+            organize_by_word_length[len(word)] = [word]
+        elif len(word) in organize_by_word_length.keys():
+            organize_by_word_length[len(word)] += [word]
+
+    sorted_tuples = sorted(organize_by_word_length.items())
+
+    return sorted_tuples
 
 
 def get_sum_zero_pairs(input_list):
