@@ -238,7 +238,17 @@ def get_sum_zero_pairs(input_list):
 
     """
 
-    return []
+    sum_zero_pairs = []
+
+    unique_num = set(input_list)
+
+    for num in unique_num:
+        if (-abs(num) in unique_num
+            and abs(num) in unique_num
+            and [-abs(num), abs(num)] not in sum_zero_pairs):
+            sum_zero_pairs.append([-abs(num), abs(num)])
+
+    return sum_zero_pairs
 
 
 ##############################################################################
